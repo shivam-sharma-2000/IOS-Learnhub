@@ -1,24 +1,27 @@
-//
-//  ContentView.swift
-//  learn_ios
-//
-//  Created by Shivam sharma on 04/07/25.
-//
+
 
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+    var module : Module
+
+    init(module: Module) {
+        self.module = module
     }
+
+    var body: some View {
+        NavigationSplitView {
+            List {
+                Text("Home")
+                Text("Profile")
+                Text("Settings")
+            }
+            .navigationTitle("Menu")
+        } detail: {
+            Text("Select a menu item")
+        }    }
 }
 
 #Preview {
-    ContentView()
+    ContentView(module: Module(title: "Hello", iconName: "person.circle"))
 }

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct learn_iosApp: App {
+    @StateObject var themeSettings = ThemeSettings()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            HomePage()
+//            ContentView()
+            HomeView()
+                .environmentObject(themeSettings)
         }
     }
 }
